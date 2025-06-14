@@ -1,8 +1,11 @@
 import axios from "axios"
 
 //_____
-const baseUrl = 'http://localhost:3002/contacts'
 const getResponseData = ({ data }) => data
+const baseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://fullstack-phonebook-api.onrender.com/contacts'
+    : 'http://localhost:3002/contacts'
 
 //_____
 const getAll = () => (
